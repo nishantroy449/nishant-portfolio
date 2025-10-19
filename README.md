@@ -16,6 +16,20 @@ This portfolio website showcases my skills, projects, education, and certificati
 - Cursor AI (for scaffolding and refactoring)
 - GitHub Pages (for live deployment)
 
+## 📦 Project Structure
+'''
+portfolio/
+├── index.html # Main HTML file with all content
+├── style.css # Complete styling and animations
+├── script.js # JavaScript functionality
+├── README.md # Project documentation
+└── screenshots/
+├── hero-section.png
+├── projects-section.png
+├── certifications-section.png
+└── contact-section.png
+'''
+
 ## Screenshots
 
 ### Hero Section
