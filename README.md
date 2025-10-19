@@ -1,20 +1,40 @@
 # Nishant Roy - Developer Portfolio
 
 ## Project Summary and Features
-This portfolio website showcases my skills, projects, education, and certifications as a Full-Stack Developer and AI/ML enthusiast.  
-**Key Features:**
-- Responsive design for desktop, tablet, and mobile
-- Smooth scrolling and CSS/JS animations
-- Interactive projects and certifications sections with hover effects
-- Contact form for visitors to reach out
-- Modern cyberpunk/neon aesthetic
+
+**Project Summary:**  
+This portfolio website is a modern, responsive, and interactive digital showcase of my skills, projects, education, and certifications. It is designed for both desktop and mobile devices, providing smooth scrolling, hover animations, and a cyberpunk/neon-inspired aesthetic. This website demonstrates my proficiency in frontend development (HTML, CSS, JavaScript), UI/UX design principles, and AI-assisted coding with Cursor AI.
+
+**Key Features:**  
+- **Responsive Design:** Works seamlessly across desktops, tablets, and mobile devices.  
+- **Smooth Animations & Transitions:** Hover effects, scrolling animations, and interactive modals.  
+- **Projects Showcase:** Detailed section highlighting my projects with images and descriptions.  
+- **Certifications Section:** Displays all my professional and academic achievements with interactive hover effects.  
+- **Contact Form:** Functional form allowing visitors to send messages.  
+- **Neon / Cyberpunk Aesthetic:** Modern design with glowing colors, cards, and glassmorphism effects.  
+- **Navigation:** Smooth scroll and interactive links to all sections of the website.  
 
 ## Tools Used
-- HTML5
-- CSS3 (Flexbox, Grid, Media Queries, Animations)
-- JavaScript (ES6+, DOM Manipulation, Event Listeners)
-- Cursor AI (for scaffolding and refactoring)
-- GitHub Pages (for live deployment)
+
+**Frontend Development:**  
+- **HTML5:** Semantic markup and structured layout.  
+- **CSS3:**  
+  - Flexbox & Grid layouts  
+  - Media queries for responsiveness  
+  - Animations, transitions, and hover effects  
+  - CSS variables for consistent theming  
+- **JavaScript (ES6+):**  
+  - DOM manipulation  
+  - Event handling (clicks, hovers, form submissions)  
+  - Intersection Observer API for scroll-based animations  
+
+**AI-Assisted Development:**  
+- **Cursor AI:** Used for scaffolding, refactoring, and improving code quality.  
+
+**Version Control & Deployment:**  
+- **Git & GitHub:** For version control and repository management.  
+- **GitHub Pages:** For live deployment of the portfolio website.  
+
 
 ## 📦 Project Structure
 ```
