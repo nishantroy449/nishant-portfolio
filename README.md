@@ -16,10 +16,7 @@ This portfolio website showcases my skills, projects, education, and certificati
 - Cursor AI (for scaffolding and refactoring)
 - GitHub Pages (for live deployment)
 
-## Setup Instructions
-1. **Clone the Repository**
-```bash
-git clone https://github.com/nishantroy449/nishant-portfolio.git
+## Screenshots
 
 ### Hero Section
 ![Hero Section](screenshots/hero-section.png)
@@ -33,3 +30,8 @@ git clone https://github.com/nishantroy449/nishant-portfolio.git
 ### Contact Section
 ![Contact Section](screenshots/contact-section.png)
 
+## Live Link
+[View Live Portfolio](https://nishantroy449.github.io/nishant-portfolio/)
+
+## Repository Link
+[GitHub Repository](https://github.com/nishantroy449/nishant-portfolio)
