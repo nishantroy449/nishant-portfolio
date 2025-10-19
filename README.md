@@ -24,10 +24,10 @@ portfolio/
 ├── script.js # JavaScript functionality
 ├── README.md # Project documentation
 └── screenshots/
-├── hero-section.png
-├── projects-section.png
-├── certifications-section.png
-└── contact-section.png
+    ├── hero-section.png
+    ├── projects-section.png
+    ├── certifications-section.png
+    └── contact-section.png
 ```
 
 ## Screenshots
