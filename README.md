@@ -20,3 +20,16 @@ This portfolio website showcases my skills, projects, education, and certificati
 1. **Clone the Repository**
 ```bash
 git clone https://github.com/nishantroy449/nishant-portfolio.git
+
+### Hero Section
+![Hero Section](screenshots/hero-section.png)
+
+### Projects Section
+![Projects Section](screenshots/projects-section.png)
+
+### Certifications Section
+![Certifications](screenshots/certifications-section.png)
+
+### Contact Section
+![Contact Section](screenshots/contact-section.png)
+
