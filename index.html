@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant Roy - Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-cyan: #90c52e;
+            --neon-cyan-glow: #90c52e;
+            --accent-blue: #0ea5e9;
+            --dark-bg: #000000;
+            --darker-bg: #0a0a0a;
+            --card-bg: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--dark-bg);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan-glow), 0 0 20px var(--neon-cyan-glow);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 5px var(--neon-cyan-glow);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            animation: pulse 5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .profile-picture {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 4px solid var(--neon-cyan);
+            box-shadow: 0 0 30px var(--neon-cyan-glow), 0 0 60px var(--neon-cyan-glow);
+            overflow: hidden;
+            animation: fadeInUp 1s ease, profileGlow 2s ease-in-out infinite alternate;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-placeholder {
+            font-size: 4rem;
+            color: var(--neon-cyan);
+            font-weight: bold;
+        }
+
+        @keyframes profileGlow {
+            from { 
+                box-shadow: 0 0 20px var(--neon-cyan-glow), 0 0 40px var(--neon-cyan-glow);
+                border-color: var(--neon-cyan);
+            }
+            to { 
+                box-shadow: 0 0 40px var(--neon-cyan-glow), 0 0 60px var(--neon-cyan-glow), 0 0 80px var(--neon-cyan-glow);
+                border-color: var(--accent-blue);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px var(--neon-cyan-glow), 0 0 40px var(--neon-cyan-glow), 0 0 60px var(--neon-cyan-glow);
+            animation: fadeInUp 1s ease, glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px var(--neon-cyan-glow), 0 0 40px var(--neon-cyan-glow); }
+            to { text-shadow: 0 0 30px var(--neon-cyan-glow), 0 0 50px var(--neon-cyan-glow), 0 0 70px var(--neon-cyan-glow); }
+        }
+
+        .hero .tagline {
+            font-size: 1.8rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text-secondary);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--neon-cyan-glow), 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .btn-secondary:hover {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--neon-cyan-glow);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px var(--neon-cyan-glow), 0 0 40px var(--neon-cyan-glow);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--neon-cyan);
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px var(--neon-cyan-glow);
+        }
+
+        .stat-card h4 {
+            color: var(--neon-cyan);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        .stat-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .edu-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .edu-card:hover::before {
+            left: 100%;
+        }
+
+        .edu-card:hover {
+            transform: translateX(10px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .edu-card h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        .edu-card .institution {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card .date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .edu-card .focus {
+            color: var(--text-secondary);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .skill-category h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            border-color: var(--neon-cyan);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--neon-cyan);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            box-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+            border-color: var(--neon-cyan);
+        }
+
+        .project-card h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .view-details {
+            display: inline-block;
+            color: var(--neon-cyan);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            text-shadow: 0 0 5px var(--neon-cyan-glow);
+        }
+
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--neon-cyan);
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+        }
+
+        .cert-card:hover {
+            background: rgba(0, 212, 255, 0.05);
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .cert-card h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            text-shadow: 0 0 8px var(--neon-cyan-glow);
+        }
+
+        .cert-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .view-cert {
+            display: inline-block;
+            color: var(--neon-cyan);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 3rem;
+            border: 2px solid var(--neon-cyan);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            color: var(--neon-cyan);
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close:hover {
+            text-shadow: 0 0 20px var(--neon-cyan-glow);
+            transform: rotate(90deg);
+        }
+
+        .modal h2 {
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--neon-cyan-glow);
+        }
+
+        .modal-body {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .modal-body h3 {
+            color: var(--neon-cyan);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        .modal-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 300px;
+            background: var(--darker-bg);
+            border: 2px dashed var(--neon-cyan);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 8px;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .contact-btn:hover {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px var(--neon-cyan-glow);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            color: var(--neon-cyan);
+            font-weight: 600;
+            text-shadow: 0 0 5px var(--neon-cyan-glow);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            background: var(--card-bg);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        footer p {
+            color: var(--text-muted);
+        }
+
+        .mantra {
+            color: var(--neon-cyan);
+            font-style: italic;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px var(--neon-cyan-glow);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px var(--neon-cyan-glow);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                margin: 10% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Nishant Roy</div>
+            <button class="mobile-menu-btn">☰</button>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section --><br><br>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-picture" >
+                <!-- Replace the src below with your actual profile picture URL -->
+                <!-- <img src="your-profile-picture-url.jpg" alt="Nishant Roy"> -->
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.2&permmsgid=msg-f:1846376528962492291&th=199fa5abaa6d9783&view=att&disp=safe&realattid=199fa5a7724ed0115722&zw" alt="Nishant Roy">
+            </div>
+            <h1>Nishant Roy</h1>
+            <p class="tagline">Learn. Build. Evolve.</p>
+            <p>Full-Stack Developer | AI/ML Enthusiast | Cybersecurity Explorer<br>
+            Building practical, data-driven solutions with passion and precision</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Multidisciplinary Developer & Problem Solver</h3>
+                <p>I am a highly motivated Computer Science Engineering student with a proven commitment to rigorous technical development. My core focus spans Full-Stack Web Development, Artificial Intelligence, and foundational Cybersecurity.</p>
+                <p>Driven by a passion for logic and problem-solving developed through competitive chess, I specialize in building practical, data-driven solutions. My approach combines analytical thinking with creative execution, guided by my personal mantra: <em>"Learn. Build. Evolve."</em></p>
+                <p>Beyond coding, I'm deeply interested in the Stock Market, Psychology, and Spiritual Growth, bringing a well-rounded perspective to every project I undertake.</p>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <h4>Top 25%</h4>
+                    <p>IIT Guwahati Summer Analytics Program</p>
+                </div>
+                <div class="stat-card">
+                    <h4>10+</h4>
+                    <p>Professional Certifications</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Active</h4>
+                    <p>Kaggle Competitor & Host</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Hackathon</h4>
+                    <p>Hack4Brahma Participant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-grid">
+            <div class="edu-card">
+                <h3>Schooling, Christ Jyoti School</h3>
+                <p class="institution">Christ Jyoti School, Nagaon</p>
+                <p class="date">Batch 2021-2022</p>
+                <p class="focus">Completed 10th Boards</p>
+            </div>
+            <div class="edu-card">
+                <h3>High Schooling, Gurukul Global Academy</h3>
+                <p class="institution">Gurukul Global Academy, Nagaon</p>
+                <p class="date">Completed (2022-2024)</p>
+                <p class="focus">Completed 12th Boards</p>
+            </div>
+            <div class="edu-card">
+                <h3>B.Tech, Computer Science and Engineering</h3>
+                <p class="institution">Assam Down Town University</p>
+                <p class="date">Class of 2029 (1st Year - Current)</p>
+                <p class="focus">Focus: Full-Stack Development, AI/ML, Cybersecurity</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">JavaScript</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Data Science & AI/ML</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">Generative AI</span>
+                    <span class="skill-tag">Kaggle</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">Full-Stack</span>
+                    <span class="skill-tag">Hooks</span>
+                    <span class="skill-tag">Routing</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Computer Science Fundamentals</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Data Structures</span>
+                    <span class="skill-tag">Algorithms</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Emerging Technologies</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Cybersecurity</span>
+                    <span class="skill-tag">OWASP Top 10</span>
+                    <span class="skill-tag">IoT</span>
+                    <span class="skill-tag">Blockchain</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" onclick="openModal('project1')">
+                <h3>Kaggle Participation & Hosting</h3>
+                <p>Active engagement in Kaggle competitions to test and refine predictive modeling and data analysis skills.</p>
+                <span class="view-details">Click to view details →</span>
+            </div>
+            <div class="project-card" onclick="openModal('project2')">
+                <h3>Personal Web Application</h3>
+                <p>Independently designed and developed a personalized full-stack birthday website.</p>
+                <span class="view-details">Click to view details →</span>
+            </div>
+            <div class="project-card" onclick="openModal('project3')">
+                <h3>House Price Prediction</h3>
+                <p>A regression-based Machine Learning project with EDA and feature engineering.</p>
+                <span class="view-details">Click to view details →</span>
+            </div>
+            <div class="project-card" onclick="openModal('project4')">
+                <h3>Bank Customer Churn Prediction</h3>
+                <p>Classification project focused on identifying at-risk customers using advanced ML techniques.</p>
+                <span class="view-details">Click to view details →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Key Achievements & Certifications</h2>
+        <div class="cert-grid">
+            <div class="cert-card" onclick="openModal('cert1')">
+                <h3>IIT Guwahati Summer Analytics</h3>
+                <p>Top 25th Percentile - Six weeks of intensive Data Science and ML coursework</p>
+                <span class="view-cert">View Certificate →</span>
+            </div>
+            <div class="cert-card" onclick="openModal('cert2')">
+                <h3>IIT Guwahati Product Matters 5.0</h3>
+                <p>Four-week bootcamp in product management and strategic problem-solving</p>
+                <span class="view-cert">View Certificate →</span>
+            </div>
+            <div class="cert-card" onclick="openModal('cert3')">
+                <h3>Hack4Brahma Hackathon</h3>
+                <p>Demonstrated collaboration, innovation, and passion for technology</p>
+                <span class="view-cert">View Certificate →</span>
+            </div>
+            <div class="cert-card" onclick="openModal('cert4')">
+                <h3>Generative AI Certified</h3>
+                <p>Advanced AI tools and Generative AI programs (Be10x and Outscal)</p>
+                <span class="view-cert">View Certificate →</span>
+            </div>
+            <div class="cert-card" onclick="openModal('cert5')">
+                <h3>Cisco IoT Certification</h3>
+                <p>Introduction to IoT and Digital Transformation - Cisco Networking Academy</p>
+                <span class="view-cert">View Certificate →</span>
+            </div>
+            <div class="cert-card" onclick="openModal('cert6')">
+                <h3>Blockchain Fundamentals</h3>
+                <p>Workshop on Blockchain Fundamentals and Applications with Sunstone</p>
+                <span class="view-cert">View Certificate →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Let's connect!</p>
+            
+            <div class="contact-links">
+                <a href="https://github.com/yourusername" class="contact-btn" target="_blank">
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/yourusername" class="contact-btn" target="_blank">
+                    LinkedIn
+                </a>
+                <a href="mailto:your.email@example.com" class="contact-btn">
+                    Email Me
+                </a>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nishant Roy. All rights reserved.</p>
+        <p class="mantra">"Learn. Build. Evolve."</p>
+    </footer>
+
+    <!-- Modals for Projects -->
+    <div id="project1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project1')">&times;</span>
+            <h2>Kaggle Participation & Hackathon</h2><br>
+            <div class="modal-body">
+                <div class="screenshot-placeholder">
+                    <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.2&permmsgid=msg-a:r112936526468268144&th=199fad9e633aacb1&view=fimg&fur=ip&permmsgid=msg-a:r112936526468268144&sz=s0-l75-ft&attbid=ANGjdJ9nJxEbSRQWJDN_N28-gMuEXVNRa9ueyjRCV_tMMguaV1fuhJ1Pqdnj-9WS7-6HYEjoFIDXQYDILKCZd4SySc6R6fjY6Zd2uhCs5yD7cEd7wXcOyJ64BQI__X4&disp=emb&realattid=ii_mgx8ntnv1&zw" alt="Kaggle Competition" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">
+                </div><br>
+                <h3>Project Overview</h3>
+                <p>Active engagement in Kaggle competitions to test and refine predictive modeling and data analysis skills. Successfully organized my first hackathon on Kaggle, demonstrating leadership and community involvement in the data science space.</p>
+                
+                <h3>Key Highlights</h3>
+                <ul>
+                    <li>Participated in multiple Kaggle competitions focusing on machine learning and data science</li>
+                    <li>Organized and hosted first hackathon on Kaggle platform</li>
+                    <li>Built and refined predictive models using various ML algorithms</li>
+                    <li>Engaged with global data science community</li>
+                    <li>Developed skills in model optimization and feature engineering</li>
+                </ul>
+
+                <h3>Technologies Used</h3>
+                <p>Python, Pandas, NumPy, Scikit-learn, Machine Learning algorithms, Data Visualization</p>
+
+                <h3>Impact</h3>
+                <p>Strengthened practical ML skills while contributing to the data science community through competition hosting and knowledge sharing.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="project2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project2')">&times;</span>
+            <h2>Personal Web Application</h2><br><br><br><br><bR><br><br><BR><BR><BR><br><br><br><br><br>
+            <div class="modal-body">
+                <div class="screenshot-placeholder">
+                    <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.1&permmsgid=msg-a:r-4300112362322785786&th=199fb09f65feb764&view=fimg&fur=ip&permmsgid=msg-a:r-4300112362322785786&sz=s0-l75-ft&attbid=ANGjdJ8ZQu2cBV379rG5zNm0P5y9ii2CrbRm-CrevPwAwY14YbaKAqq1KiBoRJv5tbEQ0VMJoHon_dUqNMFohi3sO4qMcPe-UF4ITq7TiS2E6t4MlytdivbiTNYAFO0&disp=emb&realattid=ii_mgxame9b0&zw" alt="Kaggle Competition" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">
+                </div><br><br><br><br><br><bR><br><br><BR><BR><BR><br><br><br>
+                <h3>Project Overview</h3>
+                <p>Independently designed and developed a personalized full-stack birthday website for my girlfriend, showcasing practical application of modern web development skills to deliver a functional and memorable user experience.</p>
+                
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Custom responsive design optimized for all devices</li>
+                    <li>Interactive elements and animations using JavaScript</li>
+                    <li>Personalized content and themes</li>
+                    <li>Smooth navigation and user-friendly interface</li>
+                    <li>Full-stack implementation with frontend and backend integration</li>
+                </ul>
+
+                <h3>Technologies Used</h3>
+                <p>HTML5, CSS3, JavaScript, React.js, Responsive Design principles</p>
+
+                <h3>Learning Outcomes</h3>
+                <p>Enhanced understanding of full-stack web development, user experience design, and the importance of creating meaningful, personalized digital experiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="project3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project3')">&times;</span>
+            <h2>House Price Prediction</h2><br>
+            <div class="modal-body">
+                <div class="screenshot-placeholder">
+                    <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.3&permmsgid=msg-a:r112936526468268144&th=199fad9e633aacb1&view=fimg&fur=ip&permmsgid=msg-a:r112936526468268144&sz=s0-l75-ft&attbid=ANGjdJ-g-QOZe4RahWpJ5U7K6t6v-kiG3NznhZbdSOl8FGibGsxO41DZBMYoU8dupB3eyFcCBLQdBSYaQ797Nnr5g3SycnssLXGVHsHtUbPzLU75rvQnr3U2ZvLLAWg&disp=emb&realattid=ii_mgx8pmmb2&zw" alt="Kaggle Competition" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">
+                </div><br>
+                <h3>Project Overview</h3>
+                <p>A comprehensive regression-based Machine Learning project involving Exploratory Data Analysis (EDA), feature engineering, and training various models to predict house market values with high accuracy.</p>
+                
+                <h3>Technical Implementation</h3>
+                <ul>
+                    <li>Performed extensive Exploratory Data Analysis (EDA) on housing dataset</li>
+                    <li>Implemented feature engineering techniques to improve model performance</li>
+                    <li>Trained and compared multiple regression models (Linear Regression, Random Forest, XGBoost)</li>
+                    <li>Applied cross-validation and hyperparameter tuning</li>
+                    <li>Evaluated models using metrics like RMSE, MAE, and R² score</li>
+                </ul>
+
+                <h3>Technologies & Libraries</h3>
+                <p>Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Linear Regression, Random Forest, Feature Engineering</p>
+
+                <h3>Results</h3>
+                <p>Achieved high prediction accuracy through careful feature selection and model optimization, providing valuable insights for real estate market analysis.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="project4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project4')">&times;</span>
+            <h2>Bank Customer Churn Prediction</h2>
+            <div class="modal-body"><br>
+                <div class="screenshot-placeholder">
+                    <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.4&permmsgid=msg-a:r112936526468268144&th=199fad9e633aacb1&view=fimg&fur=ip&permmsgid=msg-a:r112936526468268144&sz=s0-l75-ft&attbid=ANGjdJ86u0iio1ZQ2aUqG9G7fEiz4_Zl8COzynseerYqrHydFkAmJAc_NGFcO2s-uaY-xZdQWylHPluo4WBuZu-ZIBGZ08dHt5W3Np-3WF1U1COMZRMCwHlolccgZGw&disp=emb&realattid=ii_mgx8qs3d3&zw" alt="Kaggle Competition" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">
+                </div><br>
+                <h3>Project Overview</h3>
+                <p>A classification project focused on identifying at-risk bank customers who are likely to churn. Implemented advanced techniques to handle imbalanced data and deployed a final model to improve customer retention strategy.</p>
+                
+                <h3>Technical Approach</h3>
+                <ul>
+                    <li>Analyzed customer behavior patterns and transaction data</li>
+                    <li>Handled imbalanced dataset using SMOTE (Synthetic Minority Over-sampling Technique)</li>
+                    <li>Trained multiple classification models (Logistic Regression, Random Forest, XGBoost)</li>
+                    <li>Performed feature importance analysis to identify key churn indicators</li>
+                    <li>Optimized model for precision and recall to minimize false predictions</li>
+                    <li>Deployed model for real-time churn prediction</li>
+                </ul>
+
+                <h3>Technologies Used</h3>
+                <p>Python, Pandas, Scikit-learn, SMOTE, Classification algorithms, Model deployment techniques</p>
+
+                <h3>Business Impact</h3>
+                <p>Enabled financial institutions to proactively identify at-risk customers and implement retention strategies, potentially saving significant revenue through improved customer loyalty.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals for Certifications -->
+    <div id="cert1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cert1')">&times;</span>
+            <h2>IIT Guwahati Summer Analytics</h2>
+            <div class="modal-body">
+                <div class="screenshot-placeholder">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.5&permmsgid=msg-a:r8173385462753011414&th=199fa852e9dd30dc&view=fimg&fur=ip&permmsgid=msg-a:r8173385462753011414&sz=s0-l75-ft&attbid=ANGjdJ9gQAn466T3ndsV91eGbXYNr25deTwyqnJwfFhmp40k1EL5LcDLzryBHw1SaUsvFZ7h0TI1FX-qQwuHgadiW73Xyd1UkGZfGITU_yda2f0Klhz0fGS3BzTv1dI&disp=emb&realattid=ii_mgx5fi2c4&zw" alt="IIT Guwahati Certificate" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">
+                </div>
+                <br>
+                <br>
+                <br>
+                <h3>Achievement Details</h3>
+                <p><strong>Top 25th Percentile</strong> placement among all participants in the prestigious IIT Guwahati Summer Analytics program.</p>
+                
+                <h3>Program Overview</h3>
+                <p>Completed six weeks of intensive coursework covering advanced topics in Data Science and Machine Learning offered by one of India's premier technical institutions.</p>
+
+                <h3>Key Learning Areas</h3>
+                <ul>
+                    <li>Advanced Machine Learning algorithms and techniques</li>
+                    <li>Statistical analysis and data modeling</li>
+                    <li>Python programming for data science</li>
+                    <li>Real-world data science projects and case studies</li>
+                    <li>Feature engineering and model optimization</li>
+                </ul>
+
+                <h3>Significance</h3>
+                <p>This highly competitive placement demonstrates strong analytical abilities and commitment to mastering data science concepts from one of India's top technical institutions.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cert2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cert2')">&times;</span>
+            <h2>IIT Guwahati Product Matters 5.0</h2>
+            <div class="modal-body">
+                <div class="screenshot-placeholder">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.6&permmsgid=msg-a:r8173385462753011414&th=199fa852e9dd30dc&view=fimg&fur=ip&permmsgid=msg-a:r8173385462753011414&sz=s0-l75-ft&attbid=ANGjdJ_vnptS-JxSetB2GhgVyIEO0b0rCn2J2H9v2MkMxVKHce9F-5pfHh-5jlTtJ2WJpbL1y-OWDLWq3qM7qf3ROi5Vf0Ph4LqIRGh3F1MBmK-1P3Avc_J37xW4L3g&disp=emb&realattid=ii_mgx5fnhe5&zw" alt="IIT Guwahati Product Matters 5.0 Certificate" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">
+                </div>
+                <br>
+                <br>
+                <br>
+                <h3>Achievement Details</h3>
+                <p>Successfully completed the intensive four-week Product Matters 5.0 Bootcamp conducted by IIT Guwahati.</p>
+                
+                <h3>Program Focus</h3>
+                <ul>
+                    <li>Product management fundamentals and best practices</li>
+                    <li>Strategic problem-solving methodologies</li>
+                    <li>Creative thinking and innovation techniques</li>
+                    <li>User-centric product development</li>
+                    <li>Market analysis and competitive positioning</li>
+                </ul>
+
+                <h3>Skills Developed</h3>
+                <p>Enhanced understanding of product lifecycle, strategic decision-making, and the ability to bridge technical and business perspectives in product development.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cert3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cert3')">&times;</span>
+            <h2>Hack4Brahma Hackathon</h2>
+            <div class="modal-body"><br><br>
+                <div class="screenshot-placeholder">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.2&permmsgid=msg-a:r109105728982332416&th=199fabd075268cba&view=fimg&fur=ip&permmsgid=msg-a:r109105728982332416&sz=s0-l75-ft&attbid=ANGjdJ-4rWw5ZfMeoEjHfAKplQoyeFRzmWbDvM2G1AVKLAaWmRb3hOJLiz1nChGaPmedUVceqQwB6u5o7Q_j1bDnS8rxQybZr7LUaiGMmKMc2f94JVDdvYo8jqU3yUg&disp=emb&realattid=ii_mgx7masq1&zw" alt="Hack4Brahma Hackathon Certificate" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">                </div>
+                <br><br><br><h3>Event Overview</h3>
+                <p>Successfully participated in the Hack4Brahma hackathon, demonstrating strong technical skills, teamwork, and innovative problem-solving abilities.</p>
+                
+                <h3>Experience Highlights</h3>
+                <ul>
+                    <li>Collaborated with team members to develop innovative solutions</li>
+                    <li>Applied rapid prototyping and agile development methodologies</li>
+                    <li>Showcased coding skills under time constraints</li>
+                    <li>Presented technical solutions to judges and peers</li>
+                    <li>Networked with fellow developers and industry professionals</li>
+                </ul>
+
+                <h3>Key Takeaways</h3>
+                <p>Gained valuable experience in fast-paced development environments, strengthened collaborative coding skills, and demonstrated the ability to deliver working solutions under pressure.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cert4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cert4')">&times;</span>
+            <h2>Generative AI Certification</h2>
+            <div class="modal-body"><br><br>
+                <div class="screenshot-placeholder">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.1&permmsgid=msg-a:r3197553730128852401&th=199fac26a9fa4eae&view=att&disp=safe&realattid=199fac1ea8ec660cb11&zw" alt="Generative AI Certificate" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">                </div><br><br><br>
+                <h3>Dual Certification</h3>
+                <p>Completed two comprehensive programs focused on advanced AI tools and Generative AI technologies from Be10x and Outscal.</p>
+                
+                <h3>Program Coverage</h3>
+                <ul>
+                    <li>Fundamentals of Generative AI and Large Language Models</li>
+                    <li>Practical applications of AI tools in development</li>
+                    <li>Prompt engineering and AI optimization techniques</li>
+                    <li>Integration of AI in software development workflows</li>
+                    <li>Ethical considerations in AI implementation</li>
+                </ul>
+
+                <h3>Practical Skills</h3>
+                <p>Gained hands-on experience with cutting-edge AI technologies and learned to leverage generative AI tools to enhance productivity and create innovative solutions.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cert5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cert5')">&times;</span>
+            <h2>Cisco IoT Certification</h2>
+            <div class="modal-body"><br>
+                    <br>
+                <div class="screenshot-placeholder">
+                    
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.1&permmsgid=msg-a:r8173385462753011414&th=199fa852e9dd30dc&view=fimg&fur=ip&permmsgid=msg-a:r8173385462753011414&sz=s0-l75-ft&attbid=ANGjdJ8O-Ln99E7tPWC80aUK_ixf3UmKcgMlP6Nqj5od_GkP8QbRk34T-4K-W3k2fCtcfo3BC5Gcvk-ZUgZRl7jgWPA9mFzMqCghK7EFxGMumSk0Z1lruylJbnl6E4M&disp=emb&realattid=ii_mgx5eo040&zw" alt="Cisco IoT Certificate" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">                </div><br><br><br>
+                <h3>Certification Details</h3>
+                
+                <p>Completed the "Introduction to IoT and Digital Transformation" course through the prestigious Cisco Networking Academy.</p>
+                
+                <h3>Course Content</h3>
+                <ul>
+                    <li>Fundamentals of Internet of Things (IoT)</li>
+                    <li>IoT architecture and communication protocols</li>
+                    <li>Digital transformation strategies</li>
+                    <li>Smart devices and sensor networks</li>
+                    <li>IoT security and privacy considerations</li>
+                    <li>Real-world IoT applications across industries</li>
+                </ul>
+
+                <h3>Industry Recognition</h3>
+                <p>Cisco certification validates understanding of emerging IoT technologies and their role in driving digital transformation across various sectors.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cert6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cert6')">&times;</span>
+            <h2>Blockchain Fundamentals</h2>
+            <div class="modal-body">
+                <div><br><br><br></div>
+                <div class="screenshot-placeholder">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=1b4f0b2e4b&attid=0.1&permmsgid=msg-a:r-3216984610759079035&th=199faab91d96d7ed&view=fimg&fur=ip&permmsgid=msg-a:r-3216984610759079035&sz=s0-l75-ft&attbid=ANGjdJ9MuXO9DEoKyNEzLsFXKvSmShbVDVjKGLTgxu1AaSfH4tmBqxMt9I5f7jvv-J9oahGQ1ZRPhExZgFxFVqi_eGN7CXYl1-UKZvV46qAaCQJQunhMzWs9DqweK-k&disp=emb&realattid=ii_199faa9b5141b05ecfe1&zw" alt="Blockchain Fundamentals Certificate" style="width: 100%; border-radius: 8px; border: 2px solid var(--neon-cyan);">                
+               
+            </div> <br>
+                <br>
+                <br>
+                <h3>Workshop Details</h3>
+                <p>Completed an intensive workshop on "Blockchain Fundamentals and Applications" conducted by Sunstone.</p>
+                
+                <h3>Learning Outcomes</h3>
+                <ul>
+                    <li>Core concepts of blockchain technology</li>
+                    <li>Distributed ledger systems and consensus mechanisms</li>
+                    <li>Cryptocurrency fundamentals and applications</li>
+                    <li>Smart contracts and decentralized applications (DApps)</li>
+                    <li>Blockchain use cases across industries</li>
+                    <li>Future trends in blockchain technology</li>
+                </ul>
+
+                <h3>Practical Knowledge</h3>
+                <p>Gained foundational understanding of blockchain technology and its potential to revolutionize various industries through decentralization and transparency.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Here you can add webhook integration for n8n or other services
+            console.log('Form submitted:', formData);
+            
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scroll enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navUl = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navUl.style.display = navUl.style.display === 'flex' ? 'none' : 'flex';
+            if (navUl.style.display === 'flex') {
+                navUl.style.flexDirection = 'column';
+                navUl.style.position = 'absolute';
+                navUl.style.top = '100%';
+                navUl.style.left = '0';
+                navUl.style.right = '0';
+                navUl.style.background = 'rgba(0, 0, 0, 0.98)';
+                navUl.style.padding = '1rem';
+                navUl.style.gap = '1rem';
+                navUl.style.borderBottom = '2px solid var(--neon-cyan)';
+            }
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
