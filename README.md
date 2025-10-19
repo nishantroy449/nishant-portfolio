@@ -1,21 +1,22 @@
-# Nishant Roy — Portfolio Website
+# Nishant Roy - Developer Portfolio
 
-## Project Summary
-Personal developer portfolio showcasing skills, projects, education, and contact information. Built using HTML, CSS, JavaScript, and assisted by Cursor AI.
-
-## Features
-- Responsive design (desktop + mobile)
-- Smooth scrolling and animations
-- Interactive hover effects for projects and certificates
-- Contact form with client-side validation
+## Project Summary and Features
+This portfolio website showcases my skills, projects, education, and certifications as a Full-Stack Developer and AI/ML enthusiast.  
+**Key Features:**
+- Responsive design for desktop, tablet, and mobile
+- Smooth scrolling and CSS/JS animations
+- Interactive projects and certifications sections with hover effects
+- Contact form for visitors to reach out
+- Modern cyberpunk/neon aesthetic
 
 ## Tools Used
-- HTML, CSS, JavaScript
-- Cursor AI (for scaffolding & refactoring)
-- GitHub Pages for live deployment
+- HTML5
+- CSS3 (Flexbox, Grid, Media Queries, Animations)
+- JavaScript (ES6+, DOM Manipulation, Event Listeners)
+- Cursor AI (for scaffolding and refactoring)
+- GitHub Pages (for live deployment)
 
-## Live Link
-https://nishantroy449.github.io/nishant-portfolio/
-
-## Repository Link
-https://github.com/nishantroy449/nishant-portfolio
+## Setup Instructions
+1. **Clone the Repository**
+```bash
+git clone https://github.com/nishantroy449/nishant-portfolio.git
