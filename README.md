@@ -17,7 +17,7 @@ This portfolio website showcases my skills, projects, education, and certificati
 - GitHub Pages (for live deployment)
 
 ## 📦 Project Structure
-'''
+```
 portfolio/
 ├── index.html # Main HTML file with all content
 ├── style.css # Complete styling and animations
@@ -28,7 +28,7 @@ portfolio/
 ├── projects-section.png
 ├── certifications-section.png
 └── contact-section.png
-'''
+```
 
 ## Screenshots
 
